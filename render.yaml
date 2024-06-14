@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: mern-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        value: mongodb+srv://kevin:fingertip2024@cluster0.dob18rp.mongodb.net/amazona?retryWrites=true&w=majority&appName=Cluster0
+      - key: JWT_SECRET
+        value: somethingsecret
+      - key: PAYPAL_CLIENT_ID
+        value: ASQGOWwMFFquDcejOB0g8mZjDM6PQLgqH1G7MQGJnt5CMQqjoVQU6aEmrBZYFrSYkVOc-NVcYD2FfNM
+
+  - type: web
+    name: mern-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://lawntrims.onrender.com  # Replace with your backend URL on Render
