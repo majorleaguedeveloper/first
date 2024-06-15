@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useReducer } from 'react';
 import Chart from 'react-google-charts';
-import axios from 'axiosi';
+import axios from 'axios';
 import { Store } from '../Store';
 import { getError } from '../utils';
 import LoadingBox from '../components/LoadingBox';
