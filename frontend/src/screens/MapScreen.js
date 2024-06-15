@@ -1,4 +1,4 @@
-import api from '../api';
+import axios from 'axios';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import {
   LoadScript,
@@ -44,7 +44,7 @@ export default function MapScreen() {
   };
   useEffect(() => {
     const fetch = async () => {
-      const { data } = await api('/api/keys/google', {
+      const { data } = await axios('/api/keys/google', {
         headers: { Authorization: `BEARER ${userInfo.token}` },
       });
       setGoogleApiKey(data.key);
