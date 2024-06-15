@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import api from '../api';
 import { useContext, useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
@@ -32,7 +32,7 @@ export default function ResetPasswordScreen() {
       return;
     }
     try {
-      await Axios.post('/api/users/reset-password', {
+      await api.post('/api/users/reset-password', {
         password,
         token,
       });

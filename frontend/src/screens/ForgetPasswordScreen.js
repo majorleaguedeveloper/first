@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import api from '../api';
 import { useContext, useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
@@ -26,7 +26,7 @@ export default function ForgetPasswordScreen() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await Axios.post('/api/users/forget-password', {
+      const { data } = await api.post('/api/users/forget-password', {
         email,
       });
       toast.success(data.message);
